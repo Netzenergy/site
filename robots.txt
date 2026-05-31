@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+Sitemap: https://netzenergy.github.io/site/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
