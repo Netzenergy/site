@@ -1,11 +1,33 @@
+# Netz Energy — robots.txt
+# Independent energy advisory · UAE, KSA & Gulf
+
 User-agent: *
 Allow: /
-Disallow: /assets/
-
-Sitemap: https://netzenergy.github.io/site/sitemap.xml
+Crawl-delay: 0
 
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+Sitemap: https://site-theta-one-24.vercel.app/sitemap.xml
