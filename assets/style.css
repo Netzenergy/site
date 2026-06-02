@@ -31,7 +31,7 @@
   --line-mid:     #2E2E2E;
   --line-light:   #DCD5C0;
 
-  --font-sans: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Aptos', 'Aptos Display', 'Segoe UI', 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --container: 1440px;
@@ -1211,3 +1211,179 @@ p { margin-bottom: 1rem; }
   .ref-card { width: 200px; min-height: 110px; padding: 18px 18px; }
   .ref-card .ref-name { font-size: 0.95rem; }
 }
+
+/* ============================================================================
+   V8 — LIGHT & HAPPY THEME
+   Flips the dark/black UI to warm white + beige with brighter green accents.
+   Kept as a final override block so the base file is untouched.
+   ============================================================================ */
+:root {
+  /* Light surfaces */
+  --bg:            #FCFAF4;   /* warm white — main background        */
+  --bg-beige:      #F2EADA;   /* beige — alternating sections        */
+  --bg-beige-2:    #EAE0CB;   /* slightly deeper beige               */
+  --bg-card:       #FFFFFF;   /* cards / forms                       */
+
+  /* Text */
+  --txt:           #1E2B22;   /* near-black green-tinted ink         */
+  --txt-soft:      #4A5953;   /* secondary text                      */
+  --txt-faint:     #7A877F;   /* captions / mono labels              */
+
+  /* Brighter, happier greens */
+  --netz-green:        #138A4E;
+  --netz-green-deep:   #0E6E3E;
+  --netz-green-soft:   #2FB573;
+  --netz-green-mid:    #1A9A5C;
+
+  /* Warm secondary accent (sunny) */
+  --sun:           #E0A93B;
+  --sun-bright:    #F2C24E;
+
+  --line:          #E3DAC6;   /* light borders                       */
+  --line-soft:     #ECE5D5;
+
+  /* Kill low-contrast yellows: remap the gold accents to readable green
+     so any leftover "gold" text stays legible on light backgrounds. */
+  --gold:          #138A4E;
+  --gold-bright:   #138A4E;
+}
+
+/* Hero KPI numbers — were gold/yellow, hard to read on the light hero */
+.hero-strip .item .num { color: var(--netz-green) !important; }
+/* Any inline gold-bright accents on light sections → readable green */
+[style*="--gold-bright"] { color: var(--netz-green) !important; }
+
+/* Base surfaces */
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--txt); }
+h1, h2, h3, h4, h5 { color: var(--txt); }
+
+/* Mono / faint labels */
+.mono, .topbar, .footer-bottom { color: var(--txt-faint); }
+.section-intro, .hero-sub, .page-head .lead { color: var(--txt-soft) !important; }
+
+/* --- Sections: all dark variants become light --------------------------- */
+.section-dark      { background: var(--bg); color: var(--txt); }
+.section-light     { background: var(--bg-beige); color: var(--txt); }
+.section-cream     { background: var(--bg-beige-2); color: var(--txt); }
+.section-forest    { background: var(--bg-beige); color: var(--txt); }
+.section-wine      { background: var(--bg-beige-2); color: var(--txt); }
+.section-dark h1, .section-dark h2, .section-dark h3,
+.section-forest h2, .section-forest h3,
+.section-wine h2, .section-wine h3 { color: var(--txt); }
+.section-dark .section-intro,
+.section-forest .section-intro,
+.section-wine .section-intro { color: var(--txt-soft); }
+
+/* --- Top bar + nav ------------------------------------------------------ */
+.topbar { background: var(--bg-beige); border-bottom-color: var(--line); }
+.nav { background: rgba(252,250,244,0.85); border-bottom-color: var(--line); }
+.brand, .brand-foot { color: var(--txt); }
+.nav-links a { color: var(--txt); }
+.nav-links a .num { color: var(--txt-faint); }
+.nav-cta { border-color: var(--netz-green); color: var(--netz-green); }
+.nav-cta:hover { background: var(--netz-green); border-color: var(--netz-green); color: #fff; }
+.nav-toggle span { background: var(--txt); }
+
+/* --- Hero --------------------------------------------------------------- */
+.hero { background: var(--bg-beige); }
+.hero-headline, .hero-headline .accent-gold, .hero-headline .accent-wine { color: var(--txt); }
+.hero-headline .accent-gold { color: var(--netz-green) !important; }
+.hero-strip .item { color: var(--txt); }
+.hero-strip { border-top-color: var(--line); }
+.hero-meta-right { color: var(--txt-faint); }
+/* brighter images, soft light wash instead of black gradient */
+.hero-media video, .hero-media .hero-img { opacity: 0.92; }
+.hero-media::after {
+  background: linear-gradient(180deg,
+    rgba(252,250,244,0.15) 0%,
+    rgba(252,250,244,0.05) 40%,
+    rgba(252,250,244,0.75) 100%);
+}
+
+/* --- Page head (interior) ---------------------------------------------- */
+.page-head { background: var(--bg-beige); border-bottom-color: var(--line); }
+.page-head h1 { color: var(--txt); }
+.page-head h1 .accent-gold { color: var(--netz-green); }
+.page-head .breadcrumb { color: var(--txt-faint); }
+.page-head[style*="background-image"]::before {
+  background: linear-gradient(180deg,
+    rgba(252,250,244,0.25) 0%,
+    rgba(252,250,244,0.55) 55%,
+    rgba(252,250,244,0.85) 100%);
+}
+
+/* --- Video band --------------------------------------------------------- */
+.video-band { background: var(--bg-beige-2); }
+.video-band video, .video-band .vb-fallback { opacity: 0.95; }
+.video-band::after {
+  background: linear-gradient(180deg,
+    rgba(252,250,244,0.10) 0%,
+    rgba(252,250,244,0.05) 50%,
+    rgba(252,250,244,0.75) 100%);
+}
+.video-band h2 { color: var(--txt); }
+.video-band h2 .accent { color: var(--netz-green); }
+
+/* --- Cards / process / forms / aside ------------------------------------ */
+.process-card { background: var(--bg-card); border-color: var(--line); }
+.process-card h3 { color: var(--txt); }
+.process-card p { color: var(--txt-soft); }
+.process-card .pc-img { filter: none; }
+
+.contact-form { background: var(--bg-card); border-color: var(--line); }
+.contact-form .field label { color: var(--txt-faint); }
+.contact-form input, .contact-form select, .contact-form textarea {
+  background: var(--bg); border-color: var(--line); color: var(--txt);
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  background: #fff; border-color: var(--netz-green-soft);
+}
+.contact-info-block p, .contact-info-block a { color: var(--txt); }
+
+.service-detail aside { background: var(--bg-beige); border-left-color: var(--netz-green); }
+.service-detail aside ul li { color: var(--txt-soft); border-bottom-color: var(--line); }
+.service-detail aside ul li strong { color: var(--txt); }
+.service-detail main p, .service-detail main ul li { color: var(--txt-soft); }
+.service-detail main h3 { color: var(--txt); }
+
+/* --- Editorial / tiers / stats text on now-light backgrounds ------------ */
+.tier-name { color: var(--txt); }
+.tier-desc, .editorial-item p, .col-asymmetric .col-text { color: var(--txt-soft); }
+.tier { border-bottom-color: var(--line); }
+.tier-list, .editorial-list, .stats { border-color: var(--line); }
+.stat-cell { border-right-color: var(--line); }
+.stat-cell .num { color: var(--netz-green); }
+.stat-cell .lbl, .hero-strip .item .lbl { color: var(--txt-faint); }
+.editorial-item { border-bottom-color: var(--line); }
+.brand-display { color: var(--txt); }
+
+/* --- FAQ ---------------------------------------------------------------- */
+.faq, .faq-item { border-color: var(--line); }
+.faq summary { color: var(--txt); }
+.faq details p { color: var(--txt-soft); }
+
+/* --- Marquees ----------------------------------------------------------- */
+.marquee { background: var(--bg-beige); border-color: var(--line); }
+.marquee-item { color: var(--txt); }
+.marquee-item .dot { color: var(--netz-green-soft); }
+.ref-marquee { background: var(--bg-beige); border-color: var(--line); }
+
+/* --- Footer ------------------------------------------------------------- */
+.footer { background: var(--bg-beige-2); color: var(--txt-soft); border-top-color: var(--line); }
+.footer .desc { color: var(--txt-soft); }
+.footer ul li a { color: var(--txt); }
+.footer ul li a:hover { color: var(--netz-green); }
+.footer-grid { border-bottom-color: var(--line); }
+
+/* --- Buttons ------------------------------------------------------------ */
+.btn-ghost { color: var(--netz-green); border-color: var(--netz-green); }
+.btn-ghost:hover { background: var(--netz-green); color: #fff; border-color: var(--netz-green); }
+
+/* --- Accent helpers ----------------------------------------------------- */
+.accent-gold { color: var(--netz-green) !important; }
+.accent-wine { color: var(--sun) !important; }
+.section-eyebrow, .hero-tag { color: var(--netz-green) !important; }
+
+/* Subtle warm card shadow for a friendlier, lighter feel */
+.process-card, .contact-form, .ref-card { box-shadow: 0 6px 20px rgba(30,43,34,0.05); }

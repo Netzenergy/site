@@ -1,13 +1,21 @@
-# OS
+# Temporary files extracted from the chat transcript while building the marquee
+assets/logos/_extracted_*
+assets/extracted_image_*
+
+# Local archive of earlier site versions (kept off-repo)
+_archive_*/
+
+# OS noise
 .DS_Store
 Thumbs.db
 
-# IDE
+# Editor noise
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Logs
-*.log
-npm-debug.log*
+# Skip the unused early SVG attempts (replaced by PNG logos)
+assets/logo.svg
+assets/logo-light.svg
+assets/logo-mark.svg

@@ -23,7 +23,6 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-# Block bad bots
 User-agent: AhrefsBot
 Disallow: /
 
